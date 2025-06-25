@@ -1,0 +1,53 @@
+[
+    {
+      "model": "lib_exercise.author",
+      "pk": 1,
+      "fields": {
+        "first_name": "John",
+        "last_name": "Doe"
+      }
+    },
+    {
+      "model": "lib_exercise.author",
+      "pk": 2,
+      "fields": {
+        "first_name": "Jane",
+        "last_name": "Smith"
+      }
+    },
+    {
+      "model": "lib_exercise.tag",
+      "pk": 1,
+      "fields": {
+        "name": "Programming"
+      }
+    },
+    {
+      "model": "lib_exercise.tag",
+      "pk": 2,
+      "fields": {
+        "name": "Science"
+      }
+    },
+    {
+      "model": "lib_exercise.book",
+      "pk": 1,
+      "fields": {
+        "title": "Learn Python",
+        "author": 1,
+        "published_date": "2020-01-01",
+        "price": 29.99
+      }
+    },
+    {
+      "model": "lib_exercise.book",
+      "pk": 2,
+      "fields": {
+        "title": "The Great Gatsby",
+        "author": 2,
+        "published_date": "1925-04-10",
+        "price": 19.99
+      }
+    }
+  ]
+  
