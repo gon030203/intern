@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Detail</title>
+</head>
+<body>
+    <h1>{{ book.title }}</h1>
+    <p><strong>Author:</strong> {{ book.author.name }}</p>
+    <p><strong>Price:</strong> {{ book.price }} USD</p>
+    <p><strong>Published Date:</strong> {{ book.published_date }}</p>
+    <p><strong>Tags:</strong> {% for tag in book.tags.all %}{{ tag.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+
+    <a href="{% url 'book_list' %}">Back to list</a>
+</body>
+</html>

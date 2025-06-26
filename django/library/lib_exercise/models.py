@@ -6,7 +6,10 @@ class Author(models.Model):
     last_name = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.first_name}+{self.last_name}"
+        return f"{self.first_name} {self.last_name}"
+
+    def get_full_name(self):
+        return f"{self.first_name} {self.last_name}"
 
 class Tag(models.Model):
     name = models.CharField(max_length=100)
@@ -43,4 +46,5 @@ class BookLoan(models.Model):
     def is_overdue(self):
         return self.return_date < timezone.now().date()
 
-
+    def get_book_title(self):
+        return self.book.title
