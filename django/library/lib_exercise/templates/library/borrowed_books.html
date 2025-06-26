@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ reader.name }}'s Borrowed Books</title>
+</head>
+<body>
+    <h1>{{ reader.name }}'s Borrowed Books</h1>
+    <ul>
+        {% for loan in books %}
+            <li>{{ loan.book.title }} (Loaned on: {{ loan.loan_date }} | Return Date: {{ loan.return_date }})</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'book_list' %}">Back to list</a>
+</body>
+</html>

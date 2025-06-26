@@ -16,7 +16,19 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from lib_exercise import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.BookListView.as_view(), name='book_list'),  # Danh sách sách
+    path('book/<int:pk>/', views.BookDetailView.as_view(), name='book_detail'),  # Chi tiết sách
+    path('book/add/', views.BookCreateView.as_view(), name='add_book'),  # Thêm sách mới
+    path('book/<int:pk>/edit/', views.BookUpdateView.as_view(), name='update_book'),  # Sửa sách
+    path('book/<int:pk>/delete/', views.BookDeleteView.as_view(), name='delete_book'),  # Xóa sách
+    
+    # Các chức năng bổ sung
+    path('books/tag/<str:tag_name>/', views.BookSearchByTagView.as_view(), name='search_books_by_tag'),  # Tìm kiếm sách theo tag
+    path('books/cheap/', views.CheapBooksView.as_view(), name='cheap_books'),  # Sách giá rẻ
+    path('reader/<int:reader_id>/borrowed_books/', views.BorrowedBooksView.as_view(), name='borrowed_books'),  # Sách đã mượn của người đọc
 ]
+
