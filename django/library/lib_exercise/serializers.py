@@ -1,15 +1,21 @@
 from rest_framework import serializers
-from .models import Author, Tag, Book, Reader, BookLoan
+from django.contrib.auth.models import User
+from .models import Author, Book, Tag, BookLoan
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email']
 
 class AuthorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Author
-        fields = ['id', 'first_name', 'last_name']
+        fields = '__all__'
 
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ['id', 'name']
+        fields = '__all__'
 
 class BookSerializer(serializers.ModelSerializer):
     author = AuthorSerializer()
@@ -17,17 +23,12 @@ class BookSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Book
-        fields = ['id', 'title', 'author', 'published_date', 'price', 'tags']
-
-class ReaderSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Reader
-        fields = ['id', 'name', 'email']
+        fields = '__all__'
 
 class BookLoanSerializer(serializers.ModelSerializer):
     book = BookSerializer()
-    reader = ReaderSerializer()
+    reader = UserSerializer()
 
     class Meta:
         model = BookLoan
-        fields = ['id', 'book', 'reader', 'loan_date', 'return_date']
+        fields = '__all__'
