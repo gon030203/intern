@@ -1,0 +1,10 @@
+<!-- loans/borrowed_books.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h2>My Borrowed Books</h2>
+<ul>
+{% for loan in loans %}
+    <li>{{ loan.book }} - Return by {{ loan.return_date }} {% if loan.is_overdue %}<strong>(Overdue)</strong>{% endif %}</li>
+{% endfor %}
+</ul>
+{% endblock %}

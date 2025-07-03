@@ -1,0 +1,11 @@
+<!-- books/book_detail.html -->
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ object.title }}</h2>
+<p><strong>Author:</strong> {{ object.author }}</p>
+<p><strong>Published:</strong> {{ object.published_date }}</p>
+<p><strong>Price:</strong> {{ object.price }}</p>
+{% if user.is_authenticated %}
+<form method="post" action="{% url 'borrow_book' object.pk %}">{% csrf_token %}<button type="submit">Borrow</button></form>
+{% endif %}
+{% endblock %}
