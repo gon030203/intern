@@ -29,7 +29,7 @@ export default {
   methods: {
     async loadStudents() {
       const token = localStorage.getItem('token')
-      const res = await axios.get('http://localhost:3000/students', {
+      const res = await axios.get('http://localhost:8000/api/students/', {
         headers: { Authorization: `Bearer ${token}` }
       })
       this.students = res.data

@@ -14,7 +14,7 @@ export default {
   methods: {
     async removeStudent(id) {
       const token = localStorage.getItem('token')
-      await axios.delete(`http://localhost:3000/students/${id}`, {
+      await axios.delete(`http://localhost:8000/api/students/${id}/`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       this.$emit('student-deleted')
