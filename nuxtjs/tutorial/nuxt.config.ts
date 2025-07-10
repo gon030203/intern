@@ -2,5 +2,11 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-05-15',
   devtools: { enabled: true },
-  css: ['animate.css','~/assets/css/main.css']
+  css: ['animate.css','~/assets/css/main.css'],
+  app: {
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in',
+    }
+  }
 })

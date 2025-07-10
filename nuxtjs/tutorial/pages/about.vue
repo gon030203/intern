@@ -1,9 +1,10 @@
-<!-- pages/about.vue -->
 <template>
   <div>
     <AppCard>
       <h2>Về tôi</h2>
-      <p>Tôi thích học lập trình và làm web hiện đại.</p>
+      <p>Xin chào.</p>
+      <NuxtLink to="/">Về trang chủ</NuxtLink>
     </AppCard>
   </div>
 </template>
+
