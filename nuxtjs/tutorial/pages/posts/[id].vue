@@ -1,13 +1,13 @@
 <script setup>
-const { data: posts, pending, error } = await useFetch('/api/posts')
+const route = useRoute()
+const { data: post, pending, error } = await useFetch(`/api/posts/${route.params.id}`)
 </script>
 
 <template>
   <div v-if="pending">Đang tải...</div>
+  <div v-else-if="error">Lỗi: {{ error.message }}</div>
   <div v-else>
-    <AppCard v-for="post in posts" :key="post.id">
-      <h3>{{ post.title }}</h3>
-      <NuxtLink :to="`/posts/${post.id}`">Xem chi tiết</NuxtLink>
-    </AppCard>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.content }}</p>
   </div>
 </template>
